@@ -22,31 +22,31 @@ const Nav = () => {
          HOME
         </a> */}
         <NavButton colour="blue" tag="HOME" path="/" paddingx="7" />
-        <a
+        {/* <a
           className={`w-64 px-6 rounded hover:bg-red-500 mx-0.5 py-2 opacity-70 tracking-wider bg-gray-900 text-gray-400 hover:text-gray-100 hover:opacity-100 transition-all hover:py-3 duration-300`}
           href={`/movies`}
         >
           MOVIES
-        </a>
+        </a> */}
         <NavButton colour="red" tag="MOVIES" path="/movies" paddingx="6" />
-        <a
+        {/* <a
           className={`w-64 px-4 rounded hover:bg-green-500 mx-0.5 py-2 opacity-70 tracking-wider bg-gray-900 text-gray-400 hover:text-gray-100 hover:opacity-100 transition-all hover:py-3 duration-300`}
           href={`/watchlist`}
         >
           WATCHLIST
-        </a>
+        </a> */}
         <NavButton
           colour="green"
           tag="WATCHLIST"
           path="/watchlist"
           paddingx="4"
         />
-        <a
+        {/* <a
           className={`w-64 px-8 rounded hover:bg-purple-500 mx-0.5 py-2 opacity-70 tracking-wider bg-gray-900 text-gray-400 hover:text-gray-100 hover:opacity-100 transition-all hover:py-3 duration-300`}
           href={`/quiz`}
         >
           QUIZ
-        </a>
+        </a> */}
         <NavButton colour="purple" tag="QUIZ" path="/quiz" paddingx="8" />
       </ul>
 
