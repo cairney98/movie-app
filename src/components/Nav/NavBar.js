@@ -15,6 +15,12 @@ const Nav = ({ setSearchTerm }) => {
         alt="The Movie Data Base Logo"
       />
       <ul className="px-12">
+        <a
+          className={`w-64 px-7 rounded hover:bg-blue-500 mx-0.5 py-2 opacity-70 tracking-wider bg-gray-900 text-gray-400 hover:text-gray-100 hover:opacity-100 transition-all hover:py-3 duration-300`}
+          href={`/`}
+        >
+         HOME
+        </a>
         <NavButton colour="blue" tag="HOME" path="/" paddingx="7" />
         <NavButton colour="red" tag="MOVIES" path="/movies" paddingx="6" />
         <NavButton
