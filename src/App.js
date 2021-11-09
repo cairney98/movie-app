@@ -1,6 +1,6 @@
 import React from "react";
 import Movies from "./components/Movies";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
