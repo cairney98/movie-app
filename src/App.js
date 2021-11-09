@@ -1,13 +1,14 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import Movies from "./components/Movies";
+import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Link to="/invoices/1">Invoices1</Link> |{" "}
-      <Link to="/invoices/2">Invoices2</Link>
-      <Outlet />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="movies" element={<Movies />} />
+    </Routes>
   );
 }
 
