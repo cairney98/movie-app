@@ -15,8 +15,7 @@ const MoviesPopular = ({ movieList, loading }) => {
     <section className="mt-20 ">
       <h1 className="text-gray-400 text-3xl ml-8 mb-4">Trending Movies</h1>
       <div className="grid grid-flow-col mx-2 sc1 auto-cols-max overflow-x-auto justify-left box-border bg-gray-900 bg-opacity-50 rounded-2xl ">
-        {movieList.map((movie) => {
-          if (movie.poster_path) {
+        {movieList.filter((movie) => movie.poster_path).map((movie) =>  {
             return (
               <a href={`movie/${movie.id}`} className="m-4">
                 <img
@@ -27,7 +26,6 @@ const MoviesPopular = ({ movieList, loading }) => {
                 ></img>
               </a>
             );
-          }
         })}
       </div>
     </section>

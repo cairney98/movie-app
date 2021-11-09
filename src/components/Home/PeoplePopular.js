@@ -6,8 +6,7 @@ const PeoplePopular = ({ peopleList }) => {
     <section className="my-20">
       <h1 className="text-gray-400 text-3xl ml-8 mb-4">Trending People</h1>
       <div className="grid grid-flow-col mx-2 sc1 auto-cols-max overflow-x-auto justify-left box-border bg-gray-900 bg-opacity-50 rounded-2xl">
-        {peopleList.map((person) => {
-          if (person.profile_path) {
+        {peopleList.filter((person) => person.profile_path).map((person) => {
             return (
               <a
                 href={`people/${person.id}`}
@@ -28,7 +27,6 @@ const PeoplePopular = ({ peopleList }) => {
                 </caption>
               </a>
             );
-          }
         })}
       </div>
     </section>
