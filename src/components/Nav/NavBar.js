@@ -15,18 +15,34 @@ const Nav = () => {
         alt="The Movie Data Base Logo"
       />
       <ul className="px-12">
-        {/* */}
+        {/* 
+        
+        
+        
+        */}
         <NavButton colour="blue" tag="HOME" path="/" paddingx="7" />
-        {/*  */}
+        {/* 
+        
+        
+        
+        */}
         <NavButton colour="red" tag="MOVIES" path="/movies" paddingx="6" />
-        {/*  */}
+        {/* 
+        
+        
+        
+        */}
         <NavButton
           colour="green"
           tag="WATCHLIST"
           path="/watchlist"
           paddingx="4"
         />
-        {/*  */}
+        {/*
+        
+        
+        
+        */}
         <NavButton colour="purple" tag="QUIZ" path="/quiz" paddingx="8" />
       </ul>
 
