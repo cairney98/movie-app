@@ -17,7 +17,7 @@ const MoviesPopular = ({ movieList, loading }) => {
       <div className="grid grid-flow-col mx-2 sc1 auto-cols-max overflow-x-auto justify-left box-border bg-gray-900 bg-opacity-50 rounded-2xl ">
         {movieList.filter((movie) => movie.poster_path).map((movie) =>  {
             return (
-              <a href={`movie/${movie.id}`} className="m-4">
+              <a href={`movie/${movie.id}`} key={movie.id} className="m-4">
                 <img
                   src={IMAGE_BASE_URL + movie.poster_path}
                   className="w-48 md:w-64 shadow-2xl rounded transform hover:scale-105 transition-all duration-500 "

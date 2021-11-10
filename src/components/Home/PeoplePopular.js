@@ -11,6 +11,7 @@ const PeoplePopular = ({ peopleList }) => {
               <a
                 href={`people/${person.id}`}
                 className="m-4 w-32 md:w-56 shadow-2xl transform hover:scale-105 transition-all duration-500"
+                key={person.id}
               >
                 <img
                   src={IMAGE_BASE_URL + person.profile_path}
@@ -18,13 +19,13 @@ const PeoplePopular = ({ peopleList }) => {
                   alt={person.name}
                   key={person.id}
                 ></img>
-                <caption className="p-3 w-32 md:w-56 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
+                <div className="p-3 w-32 md:w-56 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
                   <strong>{person.name}</strong>
                   <br />
                   {person.known_for
                     .map((a) => (a.title ? a.title : a.name))
                     .join(", ")}
-                </caption>
+                </div>
               </a>
             );
         })}
