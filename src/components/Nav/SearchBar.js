@@ -2,13 +2,12 @@ import { React, useState, useEffect } from "react";
 import { getSearchRequest } from "../../API";
 
 const SearchBar = () => {
-  const [inputText, setInputText] = useState("a");
+  const [inputText, setInputText] = useState("");
   const [searchPrompt, setSearchPrompt] = useState([]);
 
   const getSearchPrompt = async (inputText) => {
     const movies = await getSearchRequest(inputText, "movie");
     const people = await getSearchRequest(inputText, "person");
-    
     setSearchPrompt(movies.results.concat(people.results));
   };
   useEffect(() => {
