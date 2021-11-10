@@ -7,7 +7,7 @@ const Nav = () => {
     window.open("https://www.themoviedb.org/documentation/api", "_blank");
   };
   return (
-    <div className="whitespace-nowrap	flex sc2 overflow-x-auto fixed top-0 right-0 left-0 lg:justify-center  mx-12 sm:mx-24 -mt-2 py-4 pt-6 rounded-b-2xl bg-gray-900 bg-opacity-60 z-50 shadow-xl">
+    <div className="whitespace-nowrap	flex sc2 overflow-x-auto fixed top-0 right-0 left-0 lg:justify-center  mx-2 sm:mx-24 -mt-2 py-4 pt-6 rounded-b-2xl bg-gray-900 bg-opacity-60 z-50 shadow-xl">
       <img
         onClick={linkHandler}
         className="h-8 pl-8 cursor-pointer"

@@ -24,6 +24,12 @@ const QuizAnswer = () => {
         <h1 className="text-gray-400 tracking-wide text-2xl mt-16 mb-4">
           {input === movie.title ? (
             <strong className="text-green-500">Correct! </strong>
+          ) : movie.id === 121 ? (
+            input.includes("Lord of the Rings") ? (
+              <strong className="text-green-500">Correct! </strong>
+            ) : (
+              <strong className="text-red-500">Incorrect. </strong>
+            )
           ) : (
             <strong className="text-red-500">Incorrect. </strong>
           )}

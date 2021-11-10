@@ -54,7 +54,7 @@ const MovieList = () => {
   return (
     <main className="flex flex-col flex-wrap justify-center items-center">
       {/* FILTERS */}
-      <header className="flex sm:flex-row flex-col  mt-24 mb-6 border-2 p-4 py-6 gap-8 bg-gray-900 bg-opacity-30 rounded-lg border-gray-300">
+      <header className="flex sm:flex-row flex-col items-center mt-24 mb-6 border-2 p-4 py-6 gap-8 bg-gray-900 bg-opacity-30 rounded-lg border-gray-300">
         <SortBy setFilter={setFilter} />
         <YearRange setFilter={setFilter} />
         <Starring setFilter={setFilter} />
@@ -66,7 +66,7 @@ const MovieList = () => {
           return (
             <a
               href={`/movie/${movie.id}`}
-              className="m-4 w-32 lg:w-56 shadow-2xl rounded transform hover:scale-105  transition-all duration-500"
+              className="m-4 w-36 lg:w-56 shadow-2xl rounded transform hover:scale-105  transition-all duration-500"
               key={movie.id}
             >
               <img

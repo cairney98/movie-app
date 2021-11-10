@@ -115,7 +115,7 @@ const QuizPage = () => {
         </header>
 
         <form
-          className="flex flex-row flex-wrap gap-1 justify-center mb-5"
+          className="flex flex-row flex-wrap gap-1 justify-center mb-10"
           autoComplete="off"
         >
           <label

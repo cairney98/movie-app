@@ -48,7 +48,7 @@ const Movie = ({ setWatchList }) => {
       />
 
       {/* MOVIE DETAILS */}
-      <header className="flex flex-row items-center flex-wrap md:flex-nowrap justify-evenly md:mx-16 mb-32 mt-32 bg-black bg-opacity-60 z-40">
+      <header className="flex flex-row items-center flex-wrap md:flex-nowrap justify-evenly md:mx-16 mb-24 mt-32 bg-black bg-opacity-60 z-40">
         <img
           className="w-72"
           src={IMAGE_BASE_URL + movieDetails.poster_path}
@@ -95,7 +95,7 @@ const Movie = ({ setWatchList }) => {
         <h1>Cast</h1>
       </div>
 
-      <section className="flex flex-row justify-center  flex-wrap gap-8 pt-6">
+      <section className="flex flex-row justify-center  flex-wrap gap-4 pt-6">
         {movieCredits.cast
           .filter((person) => person.cast_id && person.profile_path)
           .map((person) => {
@@ -105,11 +105,11 @@ const Movie = ({ setWatchList }) => {
                   href={`/people/${person.id}`}
                 >
                   <img
-                    className=" w-32 sm:w-48 rounded-t-3xl "
+                    className=" w-44 sm:w-48 rounded-t-3xl "
                     src={IMAGE_BASE_URL + person.profile_path}
                     alt=""
                   />
-                  <caption className="p-3 w-32 sm:w-48 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
+                  <caption className="p-3 w-44 sm:w-48 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
                     <strong> {person.name} </strong> <br /> {person.character}
                   </caption>
 
