@@ -8,6 +8,7 @@ const SearchBar = () => {
   const getSearchPrompt = async (inputText) => {
     const movies = await getSearchRequest(inputText, "movie");
     const people = await getSearchRequest(inputText, "person");
+    inputText === "" ? setSearchPrompt([]) :
     setSearchPrompt(movies.results.concat(people.results));
   };
   useEffect(() => {

@@ -39,12 +39,7 @@ const Person = () => {
     setJobFilter(e.target.value);
   };
 
-  console.log(
-    personCredits.filter(
-      (item, index, self) =>
-        self.findIndex((a) => a.title === item.title) === index
-    )
-  );
+  
 
   return (
     <main className="flex flex-col justify-center items-center">

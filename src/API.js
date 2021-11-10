@@ -24,9 +24,8 @@ const getDiscoverRequest = async (
 };
 
 const getSearchRequest = async (searchTerm, getTerm) => {
-  const url = searchTerm
-    ? `${BASE_URL}search/${getTerm}/?api_key=${API_KEY}&language=en-US&include_adult=false&query=${searchTerm}`
-    : "";
+  const url = searchTerm ? `${BASE_URL}search/${getTerm}/?api_key=${API_KEY}&language=en-US&include_adult=false&query=${searchTerm}`
+    : `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
   return await (await fetch(url)).json();
 };
 
