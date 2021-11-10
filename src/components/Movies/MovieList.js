@@ -67,6 +67,7 @@ const MovieList = () => {
             <a
               href={`/movie/${movie.id}`}
               className="m-4 w-32 lg:w-56 shadow-2xl rounded transform hover:scale-105  transition-all duration-500"
+              key={movie.id}
             >
               <img
                 src={IMAGE_BASE_URL + movie.poster_path}
