@@ -5,7 +5,7 @@ import { useEffect } from 'react/cjs/react.development';
 
 const QuizAnswer = () => {
     const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
-    const [movie, setMovie] = useState({})
+    const [movie, setMovie] = useState([])
     const { answer } = useParams();
     const { input } = useParams();
 
@@ -37,11 +37,11 @@ const QuizAnswer = () => {
           <img
             className="w-48 md:w-64 shadow-2xl rounded  "
             src={IMAGE_BASE_URL + movie.poster_path}
-            alt="{question.person2.name}"
+            alt={movie.title}
           ></img>
-          <caption className="p-3 w-48 md:w-64 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
+          <div className="p-3 w-48 md:w-64 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
             <strong> {movie.title} </strong>
-          </caption>
+          </div>
         </a>
         <a
           className="bg-gray-900 text-gray-400 rounded p-2 hover:bg-gray-300 font-medium hover:text-gray-900 duration-300"
