@@ -1,7 +1,6 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import { getMovieRequest } from '../../API';
 import { useParams } from 'react-router';
-import { useEffect } from 'react/cjs/react.development';
 
 const QuizAnswer = () => {
     const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
