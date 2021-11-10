@@ -18,9 +18,7 @@ const SearchBar = () => {
     setInputText(e.target.value);
   };
 
-  const submitHandler = (e) => {
-    window.location.pathname = `/search/${inputText}`;
-  };
+  
 
   const enterHandler = (e) => {
     if (e.key === "Enter") {
@@ -55,7 +53,7 @@ const SearchBar = () => {
           })}
       </datalist>
       <a
-        onClick={submitHandler}
+        
         className="group-hover:bg-opacity-100  border-r-2 border-t-2 border-b-2 border-gray-400 text-gray-400 rounded-r-full pr-2 bg-gray-800 bg-opacity-50 "
         href={`/search/${inputText}`}
       >

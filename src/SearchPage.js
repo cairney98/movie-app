@@ -12,6 +12,7 @@ const SearchPage = () => {
     const movies = await getSearchRequest(searchterm, "movie");
     setSearchResults(people.results.concat(movies.results));
   };
+  console.log(searchResults);
 
   useEffect(() => {
     getSearchResults();
