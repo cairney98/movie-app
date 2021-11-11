@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       padding: ["hover", "group-hover"],
       scale: ["group-hover"],
-      transform: ["group-hover"],
+      blur: ["group-hover"],
       brightness: ["hover"],
     },
   },

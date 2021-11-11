@@ -14,12 +14,15 @@ const PeoplePopular = ({ peopleList }) => {
       <h1 className="text-gray-400 text-3xl ml-8 mb-4">Trending People</h1>
       <nav className="flex flex-row flex-nowrap items-center">
         <button
-          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform z-40 rounded-l-lg h-32"
-          onClick={() => scroll(-574)}
+          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform z-40 rounded-l-lg h-32 hidden md:block"
+          onClick={() => scroll(-511)}
         >
-          L
+          <i class="fas fa-chevron-left"></i>
         </button>
-        <div ref={ref} className="grid grid-flow-col w-full sc1 auto-cols-max overflow-x-auto justify-left box-border bg-gray-900 bg-opacity-50 rounded-2xl">
+        <div
+          ref={ref}
+          className="grid grid-flow-col w-full sc1 auto-cols-max overflow-x-auto justify-left box-border bg-gray-900 bg-opacity-50 rounded-2xl"
+        >
           {peopleList
             .filter((person) => person.profile_path)
             .map((person) => {
@@ -47,10 +50,10 @@ const PeoplePopular = ({ peopleList }) => {
             })}
         </div>
         <button
-          className="text-gray-400 text-2xl h-32 bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform -translate-x-0 rounded-r-lg  "
-          onClick={() => scroll(574)}
+          className="text-gray-400 text-2xl h-32 bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform -translate-x-0 rounded-r-lg hidden md:block "
+          onClick={() => scroll(511)}
         >
-          R
+          <i class="fas fa-chevron-right"></i>
         </button>
       </nav>
     </section>

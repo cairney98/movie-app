@@ -3,12 +3,15 @@ import "./index.css";
 import App from "./App";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 
 
 render(
   <BrowserRouter>
-    <App/>
+    <ParallaxProvider scrollAxis="vertical">
+      <App />
+    </ParallaxProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
