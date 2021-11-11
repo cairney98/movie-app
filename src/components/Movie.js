@@ -1,8 +1,10 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useReducer } from "react";
 import { useParams } from "react-router";
 import { getMovieRequest } from "../API";
 
-const Movie = ({ setWatchList }) => {
+const Movie = ({ setWatchlist }) => {
+  const initialState = { count: 0 };
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieCredits, setMovieCredits] = useState({
     cast: [],
@@ -34,9 +36,20 @@ const Movie = ({ setWatchList }) => {
     getMovieCredits();
   }, [movieCredits]);
 
-  const watchlistHandler = () => {
-    setWatchList(movieDetails);
-  };
+  function reducer(state, action) {
+    switch (action.type) {
+      case "increment":
+        return { count: state.count + 1 };
+      case "decrement":
+        return { count: state.count - 1 };
+      default:
+        throw new Error();
+    }
+  }
+
+  const addHandler = () => {
+    setWatchlist("Goodbye")
+  }
 
   return (
     <div className="flex flex-col ">
@@ -56,7 +69,7 @@ const Movie = ({ setWatchList }) => {
         />
         <article className="flex flex-col m-4 text-left tracking-wide gap-1">
           <button
-            onClick={watchlistHandler}
+            onClick={addHandler}
             className="text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200"
           >
             + Add to Watchlist
@@ -99,23 +112,23 @@ const Movie = ({ setWatchList }) => {
         {movieCredits.cast
           .filter((person) => person.cast_id && person.profile_path)
           .map((person) => {
-              return (
-                <a
-                  className="flex flex-wrap flex-col justify-center transform hover:scale-105 transition-all  duration-500 "
-                  href={`/people/${person.id}`}
-                >
-                  <img
-                    className=" w-44 sm:w-48 rounded-t-3xl "
-                    src={IMAGE_BASE_URL + person.profile_path}
-                    alt=""
-                  />
-                  <caption className="p-3 w-44 sm:w-48 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
-                    <strong> {person.name} </strong> <br /> {person.character}
-                  </caption>
+            return (
+              <a
+                className="flex flex-wrap flex-col justify-center transform hover:scale-105 transition-all  duration-500 "
+                href={`/people/${person.id}`}
+              >
+                <img
+                  className=" w-44 sm:w-48 rounded-t-3xl "
+                  src={IMAGE_BASE_URL + person.profile_path}
+                  alt=""
+                />
+                <caption className="p-3 w-44 sm:w-48 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
+                  <strong> {person.name} </strong> <br /> {person.character}
+                </caption>
 
-                  <br />
-                </a>
-              );
+                <br />
+              </a>
+            );
           })}
       </section>
 
