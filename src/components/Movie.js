@@ -61,17 +61,29 @@ const Movie = ({setWatchlist, watchlist}) => {
         <article className="flex flex-col m-4 text-left tracking-wide gap-1">
           <button
             onClick={() =>
-              setWatchlist((prev) => {
-                return [...prev, movieDetails];
-              })
+              setWatchlist(
+                storedMovie
+                  ? watchlist.filter((item) => item.id !== movieDetails.id)
+                  : (prev) => {
+                      return [...prev, movieDetails];
+                    }
+              )
             }
             className={
               storedMovie
-                ? `text-white bg-red-900 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
-                : `text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
+                ? `text-white bg-gradient-to-r from-red-900  to-red-700 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
+                : `text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-125 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
             }
           >
-            {storedMovie ? `- Remove from Watchlist`  : `+ Add to Watchlist`}
+            {storedMovie ? (
+              <p>
+                <i class="fas fa-times"></i> Remove from Watchlist
+              </p>
+            ) : (
+              <p>
+                <i class="fas fa-plus"></i> Add to Watchlist
+              </p>
+            )}
           </button>
           <h1 className="text-white text-5xl py-2">{movieDetails.title} </h1>
           <h3 className="text-white ">
