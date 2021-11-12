@@ -1,4 +1,4 @@
-import {ReactChild, useState} from "react";
+import { React, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/NavBar";
@@ -6,12 +6,13 @@ import Movie from "./components/Movie";
 import MovieList from "./components/Movies/MovieList";
 import Person from "./components/Person";
 import SearchPage from "./SearchPage";
-import QuizPage from "./components/Quiz/QuizPage"
-import QuizAnswer from "./components/Quiz/QuizAnswer"
+import QuizPage from "./components/Quiz/QuizPage";
+import QuizAnswer from "./components/Quiz/QuizAnswer";
 import Watchlist from "./components/Watchlist";
 
 function App() {
-  const [watchlist, setWatchlist] = useState("Hello")
+  const [watchlist, setWatchlist] = useState("Hello");
+
   return (
     <main>
       <Nav />
@@ -20,11 +21,16 @@ function App() {
 
         <Route path="/movies" element={<MovieList />} />
 
-        <Route path="/watchlist" element={<Watchlist watchlist={watchlist} />} />
+        <Route
+          path="/watchlist"
+          element={
+            <Watchlist setWatchlist={setWatchlist} watchlist={watchlist} />
+          }
+        />
 
         <Route
           path="/movie/:movieId"
-          element={<Movie setWatchList={setWatchlist} />}
+          element={<Movie setWatchlist={setWatchlist} watchlist={watchlist} />}
         />
 
         <Route path="/people/:personId" element={<Person />} />

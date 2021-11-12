@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .sc1::-webkit-scrollbar {
-  display: none;
+ width: 12px;
+  height: 12px;
 }
 .sc2::-webkit-scrollbar {
   width: 12px;
@@ -22,8 +23,14 @@
   scroll-behavior: smooth;
 }
 
-.poster:hover + .backdrop {
-  filter: blur(20px);
+.poster, .backdrop {
+  box-shadow: 5px 5px 10px 4px #11182798;
+}
+
+.poster:hover {
+    box-shadow: 10px 0px 14px 4px #11182771;
+
+  
 }
 
 body {

@@ -1,10 +1,8 @@
-import { React, useEffect, useState, useReducer } from "react";
+import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getMovieRequest } from "../API";
 
-const Movie = ({ setWatchlist }) => {
-  const initialState = { count: 0 };
-  const [state, dispatch] = useReducer(reducer, initialState);
+const Movie = () => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieCredits, setMovieCredits] = useState({
     cast: [],
@@ -36,20 +34,9 @@ const Movie = ({ setWatchlist }) => {
     getMovieCredits();
   }, [movieCredits]);
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case "increment":
-        return { count: state.count + 1 };
-      case "decrement":
-        return { count: state.count - 1 };
-      default:
-        throw new Error();
-    }
-  }
+  
 
-  const addHandler = () => {
-    setWatchlist("Goodbye")
-  }
+ 
 
   return (
     <div className="flex flex-col ">
@@ -69,7 +56,6 @@ const Movie = ({ setWatchlist }) => {
         />
         <article className="flex flex-col m-4 text-left tracking-wide gap-1">
           <button
-            onClick={addHandler}
             className="text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200"
           >
             + Add to Watchlist
@@ -104,7 +90,7 @@ const Movie = ({ setWatchlist }) => {
       </header>
 
       {/* CREDITS */}
-      <div className="flex z-50 text-4xl text-white opacity-100 pl-12 font-extralight pt-4 tracking-wide">
+      <div className=" z-50 text-4xl text-white opacity-100 pl-20 font-extralight pt-4 tracking-wide">
         <h1>Cast</h1>
       </div>
 
@@ -116,6 +102,7 @@ const Movie = ({ setWatchlist }) => {
               <a
                 className="flex flex-wrap flex-col justify-center transform hover:scale-105 transition-all  duration-500 "
                 href={`/people/${person.id}`}
+                key={person.id}
               >
                 <img
                   className=" w-44 sm:w-48 rounded-t-3xl "
