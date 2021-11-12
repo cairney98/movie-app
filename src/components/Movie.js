@@ -11,6 +11,7 @@ const Movie = ({setWatchlist, watchlist}) => {
   });
   const { movieId } = useParams();
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
+   let storedMovie = watchlist.some(item => item.id === movieDetails.id)
 
   const getMovieDetails = async () => {
     const detailResponse = await getMovieRequest(movieId);
@@ -39,7 +40,7 @@ const Movie = ({setWatchlist, watchlist}) => {
   }, [watchlist])
 
   
- let storedMovie = watchlist.some(item => item.id === movieDetails.id)
+
  
 
   return (

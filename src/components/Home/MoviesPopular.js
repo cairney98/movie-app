@@ -39,7 +39,7 @@ const MoviesPopular = ({ moviePop, loading }) => {
                 <header className=" flex flex-col items-start ">
                   <img
                     src={IMAGE_BASE_URL + movie.backdrop_path}
-                    className="backdrop md:h-80 h-64  rounded "
+                    className="backdrop md:h-80 h-60  rounded "
                     alt={movie.title}
                     key={movie.id}
                   ></img>
