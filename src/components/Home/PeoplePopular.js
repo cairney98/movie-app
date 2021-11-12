@@ -14,7 +14,7 @@ const PeoplePopular = ({ peopleList }) => {
       <h1 className="text-gray-400 text-3xl ml-8 mb-2">Trending People</h1>
       <nav className="flex flex-row flex-nowrap items-center">
         <button
-          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform z-40 rounded-l-lg h-32 hidden sm:block"
+          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 hover:py-28 py-24 duration-200 px-3 transform z-40 rounded-l-lg  hidden sm:block"
           onClick={() => scroll(-511)}
         >
           <i class="fas fa-chevron-left"></i>
@@ -50,7 +50,7 @@ const PeoplePopular = ({ peopleList }) => {
             })}
         </div>
         <button
-          className="text-gray-400 text-2xl h-32 bg-gray-400 bg-opacity-10 hover:bg-opacity-40 duration-200 px-3 transform -translate-x-0 rounded-r-lg hidden sm:block "
+          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 hover:py-28 py-24 duration-200 px-3 rounded-r-lg hidden sm:block"
           onClick={() => scroll(511)}
         >
           <i class="fas fa-chevron-right"></i>

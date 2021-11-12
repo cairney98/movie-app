@@ -4,20 +4,29 @@ import { useParams } from 'react-router';
 
 const QuizAnswer = () => {
     const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
+    const [loading, setLoading] = useState(false);
     const [movie, setMovie] = useState([])
     const { answer } = useParams();
     const { input } = useParams();
 
     const getMovieDetails = async () => {
+      setLoading(true)
       const response = await getMovieRequest(answer);
       setMovie(response);
+      setLoading(false)
     };
-
 
     useEffect(() => {
         getMovieDetails();
     }, [])
 
+    if (loading) {
+      return (
+        <h2 className="text-gray-400 text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2">
+          Loading...
+        </h2>
+      );
+    }
 
     return (
       <div className="flex flex-col justify-center items-center">

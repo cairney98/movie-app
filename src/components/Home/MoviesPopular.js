@@ -14,14 +14,7 @@ const MoviesPopular = ({ moviePop, loading }) => {
     ref1.current.scrollLeft -= 584;
   };
 
-  if (loading) {
-    return (
-      <h2 className="text-gray-400 text-3xl absolute left-1/2 top-1/2">
-        Loading...
-      </h2>
-    );
-  }
-
+ 
   return (
     <main className="mt-20 justify-center flex flex-col items-center">
       <h1 className="text-gray-400 text-3xl ml-8 my-2 self-start tracking-wide">
@@ -29,7 +22,7 @@ const MoviesPopular = ({ moviePop, loading }) => {
       </h1>
       <nav className="flex flex-row flex-nowrap items-center w-full ">
         <button
-          className="text-gray-400 text-2xl  bg-gray-400 bg-opacity-10 hover:bg-opacity-40 hover:py-28 py-24 duration-200 px-3 transform -translate-x-0 rounded-l-lg hidden sm:block"
+          className="text-gray-400 text-2xl bg-gray-400 bg-opacity-10 hover:bg-opacity-40 hover:py-28 py-24 duration-200 px-3 transform -translate-x-0 rounded-l-lg hidden sm:block"
           onClick={() => scrollLeft()}
         >
           <i class="fas fa-chevron-left"></i>
