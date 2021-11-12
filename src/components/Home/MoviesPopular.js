@@ -24,7 +24,7 @@ const MoviesPopular = ({ moviePop, loading }) => {
 
   return (
     <main className="mt-20 justify-center flex flex-col items-center">
-      <h1 className="text-gray-400 text-3xl ml-8 my-2 self-start tracking-wider">
+      <h1 className="text-gray-400 text-3xl ml-8 my-2 self-start tracking-wide">
         Trending Movies
       </h1>
       <nav className="flex flex-row flex-nowrap items-center w-full ">

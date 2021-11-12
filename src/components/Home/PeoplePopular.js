@@ -29,12 +29,12 @@ const PeoplePopular = ({ peopleList }) => {
               return (
                 <a
                   href={`people/${person.id}`}
-                  className="m-4 w-32 md:w-56 shadow-2xl transform hover:scale-105 transition-all duration-500"
+                  className="m-4 w-32 md:w-56 shadow-2xl transform hover:scale-105 transition-all duration-500 poster"
                   key={person.id}
                 >
                   <img
                     src={IMAGE_BASE_URL + person.profile_path}
-                    className="rounded-t-lg "
+                    className="rounded-t-lg  "
                     alt={person.name}
                     key={person.id}
                   ></img>

@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getMovieRequest } from "../API";
 
-const Movie = () => {
+const Movie = ({setWatchlist, watchlist}) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieCredits, setMovieCredits] = useState({
     cast: [],
@@ -34,8 +34,12 @@ const Movie = () => {
     getMovieCredits();
   }, [movieCredits]);
 
-  
+  useEffect(() => {
+    localStorage.setItem("watchlist", JSON.stringify(watchlist))
+  }, [watchlist])
 
+  
+ let storedMovie = watchlist.some(item => item.id === movieDetails.id)
  
 
   return (
@@ -56,9 +60,18 @@ const Movie = () => {
         />
         <article className="flex flex-col m-4 text-left tracking-wide gap-1">
           <button
-            className="text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200"
+            onClick={() =>
+              setWatchlist((prev) => {
+                return [...prev, movieDetails];
+              })
+            }
+            className={
+              storedMovie
+                ? `text-white bg-red-900 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
+                : `text-white bg-gradient-to-r from-green-600  to-blue-600 filter brightness-90 hover:brightness-110 hover:shadow-xl  tracking-wide rounded-full p-1 px-2.5 self-start duration-200`
+            }
           >
-            + Add to Watchlist
+            {storedMovie ? `- Remove from Watchlist`  : `+ Add to Watchlist`}
           </button>
           <h1 className="text-white text-5xl py-2">{movieDetails.title} </h1>
           <h3 className="text-white ">

@@ -11,7 +11,9 @@ import QuizAnswer from "./components/Quiz/QuizAnswer";
 import Watchlist from "./components/Watchlist";
 
 function App() {
-  const [watchlist, setWatchlist] = useState("Hello");
+
+
+  const [watchlist, setWatchlist] = useState(localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")): []);
 
   return (
     <main>
