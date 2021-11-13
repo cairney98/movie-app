@@ -80,9 +80,7 @@ const QuizPage = () => {
 
   if (loading) {
     return (
-      <h1 className="text-gray-400 text-3xl absolute left-1/2 top-1/2 transform -translate-x-1/2">
-        Loading...
-      </h1>
+      <div className="lds-dual-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
     );
   } else {
     return (

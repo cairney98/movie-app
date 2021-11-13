@@ -3,20 +3,30 @@ import { useParams } from "react-router";
 import { getSearchRequest } from "../API";
 
 const SearchPage = () => {
+  const [loading, setloading] = useState(false)
   const [searchResults, setSearchResults] = useState([]);
   const { searchterm } = useParams();
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
   const getSearchResults = async () => {
+    setloading(true)
     const people = await getSearchRequest(searchterm, "person");
     const movies = await getSearchRequest(searchterm, "movie");
     setSearchResults(people.results.concat(movies.results));
+    setloading(false)
   };
   console.log(searchResults);
 
   useEffect(() => {
     getSearchResults();
   }, []);
+
+  
+if (loading) {
+  return (
+    <div className="lds-dual-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+  );
+}
 
   return (
     <main className="flex flex-col justify-center box-border pt-16">

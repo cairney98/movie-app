@@ -26,10 +26,9 @@ const Home = () => {
   }, []);
 
 if (loading) {
+  
   return (
-    <h2 className="text-gray-400 text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2">
-      Loading...
-    </h2>
+    <div className="lds-dual-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
   );
 }
 
