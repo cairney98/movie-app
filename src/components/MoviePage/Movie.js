@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getMovieRequest } from "../API";
+import { getMovieRequest } from "../../API";
+import MovieCredits from "./MovieCredits";
 
-const Movie = ({setWatchlist, watchlist}) => {
+const Movie = ({ setWatchlist, watchlist }) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieCredits, setMovieCredits] = useState({
     cast: [],
@@ -11,7 +12,7 @@ const Movie = ({setWatchlist, watchlist}) => {
   });
   const { movieId } = useParams();
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
-   let storedMovie = watchlist.some(item => item.id === movieDetails.id)
+  let storedMovie = watchlist.some((item) => item.id === movieDetails.id);
 
   const getMovieDetails = async () => {
     const detailResponse = await getMovieRequest(movieId);
@@ -36,12 +37,8 @@ const Movie = ({setWatchlist, watchlist}) => {
   }, [movieCredits]);
 
   useEffect(() => {
-    localStorage.setItem("watchlist", JSON.stringify(watchlist))
-  }, [watchlist])
-
-  
-
- 
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  }, [watchlist]);
 
   return (
     <div className="flex flex-col ">
@@ -115,37 +112,11 @@ const Movie = ({setWatchlist, watchlist}) => {
         </article>
       </header>
 
-      {/* CREDITS */}
-      <div className=" z-50 text-4xl text-white opacity-100 pl-20 font-extralight pt-4 tracking-wide">
-        <h1>Cast</h1>
-      </div>
+      <MovieCredits
+        movieCredits={movieCredits}
+        setMovieCredits={setMovieCredits}
+      />
 
-      <section className="flex flex-row justify-center  flex-wrap gap-4 pt-6">
-        {movieCredits.cast
-          .filter((person) => person.cast_id && person.profile_path)
-          .map((person) => {
-            return (
-              <a
-                className="flex flex-wrap flex-col justify-center transform hover:scale-105 transition-all  duration-500 "
-                href={`/people/${person.id}`}
-                key={person.id}
-              >
-                <img
-                  className=" w-44 sm:w-48 rounded-t-3xl "
-                  src={IMAGE_BASE_URL + person.profile_path}
-                  alt=""
-                />
-                <caption className="p-3 w-44 sm:w-48 text-center  text-gray-400 tracking-wide truncate rounded-b bg-gray-900">
-                  <strong> {person.name} </strong> <br /> {person.character}
-                </caption>
-
-                <br />
-              </a>
-            );
-          })}
-      </section>
-
-      {/* LOAD MORE */}
       <section className="flex flex-row justify-center box-border  mb-10 gap-1 z-50">
         <button
           onClick={() =>
