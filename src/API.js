@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
-const API_KEY = "";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const getMoviesRequest = async (getTerm, page) => {
   const url = `${BASE_URL}movie/${getTerm}?api_key=${API_KEY}&language=en-US&include_adult=false&${page}`;
