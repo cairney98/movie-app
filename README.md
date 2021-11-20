@@ -1,15 +1,18 @@
-# ReactJS and TailwindCSS movie application project.
+# Responsive ReactJS movie application project.
 
 
-Movie database application using React and utilizing The Movie Database API to display movie and people data.
+Mobile friendly Movie database application that utilises React, Tailwind and The Movie Database API to display movie and people data.
 
 ![](public/MovieApp.jpg)
+
+<a href="https://clever-edison-6951f9.netlify.app/">Demo</a>
 
 
 ## Features
 
 <ul>
   <li> Browse in depth information on movies and people, giving full cast details and history of work.</li>
+  <li> Reponsive design, allowing formatted and easy to use layout for all screen sizes.</li>
   <li> Add or remove movies from a persistent watchlist for easy access anytime. </li>
   <li> Sort movies by date, revenue and rating. </li>
   <li> Filter movies by the minimum and maximum year of release as well as filter by inclusion of specified cast member.</li>
