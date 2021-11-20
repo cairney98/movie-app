@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
-const API_KEY = "3b853b52d4f3c9e4ff2059750e0d7692";
+const API_KEY = "";
 
 const getMoviesRequest = async (getTerm, page) => {
   const url = `${BASE_URL}movie/${getTerm}?api_key=${API_KEY}&language=en-US&include_adult=false&${page}`;
