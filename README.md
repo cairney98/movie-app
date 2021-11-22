@@ -16,7 +16,7 @@ Mobile friendly Movie database application that utilises React, Tailwind and The
   <li> Add or remove movies from a persistent watchlist for easy access anytime. </li>
   <li> Sort movies by date, revenue and rating. </li>
   <li> Filter movies by the minimum and maximum year of release as well as filter by inclusion of specified cast member.</li>
-  <li> Fun mini quiz game that requires you to guess the film based on two actors who star in it. </li>
+  <li> Fun mini quiz game that requires you to guess the film based on two starring actors. </li>
   <li> Search functionality that allows a search of any film or person with autocomplete suggestions. </li>
 </ul>
 
