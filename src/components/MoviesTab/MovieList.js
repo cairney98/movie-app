@@ -5,6 +5,7 @@ import YearRange from "./YearRange";
 import Starring from "./Starring";
 
 const MovieList = () => {
+  // Setting states
   const [movies, setMovies] = useState({
     results: [],
     total_pages: "",
@@ -17,8 +18,12 @@ const MovieList = () => {
     featuring: "",
     page: 1,
   });
+
+  // Initialise the base url for fetching images.
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
+  // Function for retrieving movies based on the properties in the filter state.
+  // API request can be found in the API component.
   const getDiscoverMovies = async () => {
     const response = await getDiscoverRequest(
       filter.page,
@@ -33,6 +38,9 @@ const MovieList = () => {
       "",
       ""
     );
+
+    // If load more is clicked then page property will increase. This will then combine previous results
+    // with the new results to produce more on the page.
     setMovies((prev) => {
       return filter.page > 1
         ? { ...prev, results: prev.results.concat(response.results) }
@@ -44,10 +52,11 @@ const MovieList = () => {
     });
   };
 
+  //  useEffect hook to call the functions and retrieve data asynchronously when the application first loads
+  // and when the filter state chages
   useEffect(() => {
     getDiscoverMovies();
   }, [filter]);
-
 
   return (
     <main className="flex flex-col flex-wrap justify-center items-center">

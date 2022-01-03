@@ -4,20 +4,31 @@ import { getMovieRequest } from "../../API";
 import MovieCredits from "./MovieCredits";
 
 const Movie = ({ setWatchlist, watchlist }) => {
+  // Initialising states.
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieCredits, setMovieCredits] = useState({
     cast: [],
     crew: [],
     loadMore: false,
   });
+
+  // Implementing useParams for react router to lead to the appropriate page when a film is selected.
   const { movieId } = useParams();
+
+  // Initialise the base url for fetching images.
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
+
+  // Creating a boolian variable that tells us if the current movie is already stored in the watchlist.
   let storedMovie = watchlist.some((item) => item.id === movieDetails.id);
 
+  // Function for requesting specific movie details and setting the state.
   const getMovieDetails = async () => {
     const detailResponse = await getMovieRequest(movieId);
     setMovieDetails(detailResponse);
   };
+
+  // Function for requesting the credits of a specific movie and setting the state.
+  // Amount of entries in the state is set based on whether the loadMore property is true/false.
   const getMovieCredits = async () => {
     const creditResponse = await getMovieRequest(movieId, "/credits");
     setMovieCredits((prev) => {
@@ -31,11 +42,14 @@ const Movie = ({ setWatchlist, watchlist }) => {
     });
   };
 
+  // Implement useEffect hook to call the functions and retrieve data asynchronously when the application first loads
+  // and when the movieCredits state changes.
   useEffect(() => {
     getMovieDetails();
     getMovieCredits();
   }, [movieCredits]);
 
+  // useEffect is used to add movies to the local storage when watchlist state is changed.
   useEffect(() => {
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
   }, [watchlist]);
@@ -57,6 +71,8 @@ const Movie = ({ setWatchlist, watchlist }) => {
           alt={movieDetails.title}
         />
         <article className="flex flex-col m-4 text-left tracking-wide gap-1">
+          {/* Button for setting watchlist state. If storedMovie is true then clicking will remove the movie,
+          otherwise it will add to the state.*/}
           <button
             onClick={() =>
               setWatchlist(

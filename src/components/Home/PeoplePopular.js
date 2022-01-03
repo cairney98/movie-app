@@ -1,10 +1,13 @@
 import { React, useRef } from "react";
 
 const PeoplePopular = ({ peopleList }) => {
+  // Using useRef hook to be able to mutate values in the DOM. In this case, for scrolling this component.
   const ref = useRef(null);
 
+  // Initialise the base url for fetching images.
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
+  // Setting scroll amount.
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
@@ -23,6 +26,7 @@ const PeoplePopular = ({ peopleList }) => {
           ref={ref}
           className="grid grid-flow-col w-full sc1 auto-cols-max overflow-x-auto justify-left box-border  rounded-2xl"
         >
+          {/* Filtering people that have a valid image link and returning those images as posters. */}
           {peopleList
             .filter((person) => person.profile_path)
             .map((person) => {

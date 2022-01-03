@@ -1,18 +1,23 @@
 import { React, useRef } from "react";
 
-const MoviesPopular = ({ moviePop, loading }) => {
+const MoviesPopular = ({ moviePop }) => {
+
+  // Using useRef hook to be able to mutate values in the DOM. In this case, for scrolling this component.
   const ref1 = useRef(null);
 
+  // Initialise the base url for fetching images.
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
+  // Setting scroll amount to the right.
   const scrollRight = () => {
     ref1.current.scrollLeft += 584;
   };
+
+  // Setting scroll amount to the left.
   const scrollLeft = () => {
     ref1.current.scrollLeft -= 584;
   };
 
- 
   return (
     <main className="mt-20 justify-center flex flex-col items-center">
       <h1 className="text-gray-400 text-3xl ml-8 my-2 self-start tracking-wide">
@@ -30,6 +35,7 @@ const MoviesPopular = ({ moviePop, loading }) => {
           ref={ref1}
           className="grid grid-flow-col w-full sc1 auto-cols-max overflow-x-auto justify-left -mb-32 md:-mb-52 rounded shadow-inner"
         >
+          {/* Filtering movies that have a valid image link and returning those images as posters. */}
           {moviePop
             .filter((movie) => movie.poster_path)
             .map((movie) => {
