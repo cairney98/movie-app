@@ -1,7 +1,7 @@
 # Responsive ReactJS movie application project.
 
 
-Mobile friendly Movie database application that utilises React, Tailwind and The Movie Database API to display movie and people data.
+A mobile friendly movie website that utilises React, Tailwind and The Movie Database API to display movie and people data.
 
 ![](public/MovieApp.jpg)
 
