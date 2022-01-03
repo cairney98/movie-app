@@ -5,7 +5,6 @@ import YearRange from "./YearRange";
 import Starring from "./Starring";
 
 const MovieList = () => {
-  const [loading, setloading] = useState(false);
   const [movies, setMovies] = useState({
     results: [],
     total_pages: "",
@@ -21,7 +20,6 @@ const MovieList = () => {
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
   const getDiscoverMovies = async () => {
-    setloading(true);
     const response = await getDiscoverRequest(
       filter.page,
       filter.sortby,
@@ -35,7 +33,6 @@ const MovieList = () => {
       "",
       ""
     );
-    setloading(false);
     setMovies((prev) => {
       return filter.page > 1
         ? { ...prev, results: prev.results.concat(response.results) }
@@ -51,11 +48,6 @@ const MovieList = () => {
     getDiscoverMovies();
   }, [filter]);
 
-  if (loading) {
-    return (
-      <div className="lds-dual-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-    );
-  }
 
   return (
     <main className="flex flex-col flex-wrap justify-center items-center">

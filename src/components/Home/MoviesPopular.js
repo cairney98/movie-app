@@ -1,9 +1,7 @@
 import { React, useRef } from "react";
-import { ParallaxBanner } from "react-scroll-parallax";
 
 const MoviesPopular = ({ moviePop, loading }) => {
   const ref1 = useRef(null);
-  const ref2 = useRef(null);
 
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
